@@ -9,6 +9,9 @@ session, token_info = get_oauth_session(gen_token=False)
 
 response = session.post(
     'https://services.sentinel-hub.com/api/v1/process',
+    headers = {
+        "Content-Type": "application/json"
+    },
     data = json.dumps({
         "input": {
             "bounds": {
@@ -56,4 +59,4 @@ response = session.post(
 )
 
 print(response)
-print(response.content)
+# print(response.content)
