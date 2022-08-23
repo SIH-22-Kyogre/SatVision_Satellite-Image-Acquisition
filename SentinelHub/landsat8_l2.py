@@ -1,4 +1,7 @@
 import json
+from PIL import Image
+from io import BytesIO
+from matplotlib import pyplot as plot
 
 from token_manager import *
 
@@ -60,3 +63,6 @@ response = session.post(
 
 print(response)
 # print(response.content)
+response_img = Image.open(BytesIO(response.content))
+plot.imshow(response_img)
+plot.show()
